@@ -11,8 +11,8 @@
   (add-hook 'lsp-after-open-hook #'ccls-code-lens-mode)
   (ccls-use-default-rainbow-sem-highlight)
   ;; https://github.com/maskray/ccls/blob/master/src/config.h
-  (setq
-   ccls-extra-init-params
+  (setq ccls-cache-dir ".cache")
+  (setq ccls-extra-init-params
    `(:clang (:extraArgs ["--gcc-toolchain=/usr"]
              :pathMappings ,+ccls-path-mappings)
             :completion

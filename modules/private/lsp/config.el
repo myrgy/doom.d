@@ -19,8 +19,9 @@
 
 
 (def-package! lsp-mode
-  :init (setq lsp--json-array-use-vector t)
-  :commands (lsp-mode lsp-define-stdio-client))
+  ;; :init (setq lsp--json-array-use-vector t)
+  ;; :commands (lsp-mode lsp-define-stdio-client)
+  )
 
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
