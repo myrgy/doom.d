@@ -21,6 +21,9 @@
 (def-package! lsp-mode
   ;; :init (setq lsp--json-array-use-vector t)
   ;; :commands (lsp-mode lsp-define-stdio-client)
+  :init
+  (require 'lsp-imenu)
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   )
 
 (def-package! lsp-ui
@@ -29,4 +32,6 @@
 (def-package! company-lsp
   :after company
   :init
-  (setq company-transformers nil company-lsp-cache-candidates nil))
+  (setq company-transformers nil
+        company-lsp-async t
+        company-lsp-cache-candidates nil))
