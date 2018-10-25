@@ -157,6 +157,8 @@
        (default +bindings +snippets +evil-commands)
 
        :private
-       lsp
-       ccls
+       (lsp
+         +doc)
+       (ccls
+        +rainbow)
        )

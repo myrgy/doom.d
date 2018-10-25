@@ -1,15 +1,20 @@
 ;;; ccls/config.el -*- lexical-binding: t; -*-
 
 (def-package! ccls
-  ;; :when (featurep! +lsp)
-  ;; :when (featurep! :tools lsp)
+  ;; :when (featurep :private +lsp)
+  :after lsp-mode
   :hook ((c-mode c++-mode cuda-mode objc-mode) . '+ccls//enable)
   :config
-  ;; overlay is slow
-  ;; Use https://github.com/emacs-mirror/emacs/commits/feature/noverlay
-  (setq ccls-sem-highlight-method 'font-lock)
-  (add-hook 'lsp-after-open-hook #'ccls-code-lens-mode)
-  (ccls-use-default-rainbow-sem-highlight)
+
+  (when (featurep! +lens)
+    (add-hook 'lsp-after-open-hook #'ccls-code-lens-mode))
+
+  (when (featurep! +rainbow)
+    ;; overlay is slow
+    ;; Use https://github.com/emacs-mirror/emacs/commits/feature/noverlay
+    (setq ccls-sem-highlight-method 'font-lock)
+    (ccls-use-default-rainbow-sem-highlight))
+
   ;; https://github.com/maskray/ccls/blob/master/src/config.h
   (setq ccls-cache-dir ".cache")
   ;; (setq ccls-extra-init-params

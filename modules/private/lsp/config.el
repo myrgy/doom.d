@@ -23,11 +23,15 @@
   ;; :commands (lsp-mode lsp-define-stdio-client)
   :init
   (require 'lsp-imenu)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-  )
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
 
 (def-package! lsp-ui
-  :hook (lsp-mode . lsp-ui-mode))
+  :hook (lsp-mode . lsp-ui-mode)
+  :init
+  ;; include type signature in the child frame
+  (setq lsp-ui-doc-include-signature (featurep! +doc))
+  ;; show symbol on the right of info
+  (setq lsp-ui-sideline-show-symbol (featurep! +sideline)))
 
 (def-package! company-lsp
   :after company
