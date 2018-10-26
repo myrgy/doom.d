@@ -34,6 +34,11 @@
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :config
+   (map! :map lsp-ui-peek-mode-map
+    "h" 'lsp-ui-peek--select-prev-file
+    "j" 'lsp-ui-peek--select-next
+    "k" 'lsp-ui-peek--select-prev
+    "l" 'lsp-ui-peek--select-next-file)
   ;; (set! :lookup 'lsp-ui-mode
   ;;   :definition #'lsp-ui-peek-find-definitions
   ;;   :references #'lsp-ui-peek-find-references)
