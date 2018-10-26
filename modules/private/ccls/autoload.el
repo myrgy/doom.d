@@ -6,13 +6,7 @@
 ;;;###autoload
 (defvar +ccls-initial-blacklist [])
 
-;;;###autoload
-(defun +ccls//enable ()
-  (require 'ccls)
-  ;; (setq-local lsp-ui-sideline-show-symbol nil)
-  (condition-case nil
-      (lsp-ccls-enable)
-    (user-error nil)))
+
 
 (after! projectile
   ;; (setq compilation-read-command nil)  ; no prompt in projectile-compile-project
@@ -22,4 +16,4 @@
   ;;                                   :compile "cmake --build Debug"
   ;;                                   :test "ctest")
   (add-to-list 'projectile-globally-ignored-directories ".cache")
-)
+  )

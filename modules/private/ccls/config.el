@@ -1,12 +1,20 @@
 ;;; ccls/config.el -*- lexical-binding: t; -*-
 
 (def-package! ccls
-  ;; :when (featurep :private +lsp)
-  :after lsp-mode
-  :hook ((c-mode c++-mode cuda-mode objc-mode) . '+ccls//enable)
-  :config
+  ;; :when (featurep! :private +lsp
+  :hook ((c-mode c++-mode cuda-mode objc-mode) . '+setup-ccls)
+  :init
+  (setq ccls-cache-dir ".cache")
+  (defun +setup-ccls ()
+    (setq-local company-transformers nil)
+    (setq-local company-lsp-cache-candidates nil)
+    ;; (setq-local lsp-ui-sideline-show-symbol nil)
+    (condition-case nil
+        (lsp-ccls-enable)
+      (user-error nil)))
 
-  (when (featurep! +lens)
+  :config
+   (when (featurep! +lens)
     (add-hook 'lsp-after-open-hook #'ccls-code-lens-mode))
 
   (when (featurep! +rainbow)
@@ -16,7 +24,6 @@
     (ccls-use-default-rainbow-sem-highlight))
 
   ;; https://github.com/maskray/ccls/blob/master/src/config.h
-  (setq ccls-cache-dir ".cache")
   ;; (setq ccls-extra-init-params
   ;;  `(:clang (:extraArgs ["--gcc-toolchain=/usr"]
   ;;            :pathMappings ,+ccls-path-mappings)
@@ -30,4 +37,4 @@
 
   (evil-set-initial-state 'ccls-tree-mode 'emacs)
   (set-company-backend! '(c-mode c++-mode cuda-mode objc-mode) 'company-lsp)
-)
+  )
