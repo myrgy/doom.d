@@ -6,8 +6,6 @@
 ;;;###autoload
 (defvar +ccls-initial-blacklist [])
 
-
-
 (after! projectile
   ;; (setq compilation-read-command nil)  ; no prompt in projectile-compile-project
   ;; ;; . -> Build

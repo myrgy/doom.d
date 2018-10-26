@@ -21,19 +21,25 @@
 (def-package! lsp-mode
   ;; :init (setq lsp--json-array-use-vector t)
   ;; :commands (lsp-mode lsp-define-stdio-client)
+  :after xref
   :init
   (require 'lsp-imenu)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  :config
+  (progn
+    (evil-set-command-property 'lsp-goto-type-definition :jump t)
+    (evil-set-command-property 'lsp-goto-implementation :jump t))
+  )
 
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :config
-  (set! :lookup 'lsp-ui-mode
-    :definition #'lsp-ui-peek-find-definitions
-    :references #'lsp-ui-peek-find-references)
-  (setq lsp-ui-doc-max-height 8
-        lsp-ui-doc-max-width 35
-        lsp-ui-sideline-ignore-duplicate t)
+  ;; (set! :lookup 'lsp-ui-mode
+  ;;   :definition #'lsp-ui-peek-find-definitions
+  ;;   :references #'lsp-ui-peek-find-references)
+  ;; (setq lsp-ui-doc-max-height 8
+  ;;       lsp-ui-doc-max-width 35
+  ;;       lsp-ui-sideline-ignore-duplicate t)
 
   :init
   (setq
@@ -47,6 +53,6 @@
   :config
   (set! :company-backend 'lsp-mode '(company-lsp))
   (setq company-lsp-enable-recompletion t)
-    (setq company-transformers nil
+  (setq company-transformers nil
         company-lsp-async t
         company-lsp-cache-candidates nil))
