@@ -25,6 +25,10 @@
   :init
   (require 'lsp-imenu)
   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  (setq xref-prompt-for-identifier '(not xref-find-definitions
+                                         xref-find-definitions-other-window
+                                         xref-find-definitions-other-frame
+                                         xref-find-references))
   :config
   (progn
     (evil-set-command-property 'lsp-goto-type-definition :jump t)
