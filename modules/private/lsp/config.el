@@ -38,17 +38,33 @@
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :config
-   (map! :map lsp-ui-peek-mode-map
-    "h" 'lsp-ui-peek--select-prev-file
-    "j" 'lsp-ui-peek--select-next
-    "k" 'lsp-ui-peek--select-prev
-    "l" 'lsp-ui-peek--select-next-file)
+  (map! :map lsp-ui-peek-mode-map
+        "h" 'lsp-ui-peek--select-prev-file
+        "j" 'lsp-ui-peek--select-next
+        "k" 'lsp-ui-peek--select-prev
+        "l" 'lsp-ui-peek--select-next-file)
+  (map!
+   ;; localleader
+   :m "," nil
+   (:leader
+     (:desc "lsp" :prefix "l"
+       :n "=" #'lsp-format-buffer
+       :n "a" #'lsp-execute-code-action
+       :n "l" #'lsp-ui-sideline-mode
+       :n "d" #'lsp-ui-doc-mode
+       :n "e" #'lsp-ui-flycheck-list
+       :n "i" #'lsp-ui-imenu
+       :n "r" #'lsp-rename
+       :n "R" #'lsp-restart-workspace
+       :n "w" #'lsp-ui-peek-find-workspace-symbol
+       )))
   ;; (set! :lookup 'lsp-ui-mode
   ;;   :definition #'lsp-ui-peek-find-definitions
   ;;   :references #'lsp-ui-peek-find-references)
   ;; (setq lsp-ui-doc-max-height 8
   ;;       lsp-ui-doc-max-width 35
   ;;       lsp-ui-sideline-ignore-duplicate t)
+
 
   :init
   (setq

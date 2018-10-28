@@ -12,11 +12,3 @@
 If SPLIT-ONEWINDOW is non-`nil' window is split in persistent action."
     (with-helm-window
          (setq helm-persistent-action-display-window (get-mru-window)))))
-
-
-
-(def-package! helm-make
-  :after helm)
-
-(def-package! helm-ctest
-  :after helm)

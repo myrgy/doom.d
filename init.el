@@ -161,4 +161,5 @@
          +doc)
        (ccls
         +rainbow)
+       prj
        )
