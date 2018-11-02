@@ -37,4 +37,14 @@
 
   (evil-set-initial-state 'ccls-tree-mode 'emacs)
   (set-company-backend! '(c-mode c++-mode cuda-mode objc-mode) 'company-lsp)
+
+  (map!
+   ;; localleader
+   :m "," nil
+   (:leader
+     (:prefix "l"
+       (:desc "Other" :prefix "o"
+         :n "r" #'ccls-reload
+         ))
+     ))
   )

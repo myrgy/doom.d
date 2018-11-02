@@ -38,6 +38,7 @@
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :config
+
   (map! :map lsp-ui-peek-mode-map
         "h" 'lsp-ui-peek--select-prev-file
         "j" 'lsp-ui-peek--select-next
@@ -50,14 +51,16 @@
      (:desc "lsp" :prefix "l"
        :n "=" #'lsp-format-buffer
        :n "a" #'lsp-execute-code-action
-       :n "l" #'lsp-ui-sideline-mode
-       :n "d" #'lsp-ui-doc-mode
        :n "e" #'lsp-ui-flycheck-list
        :n "i" #'lsp-ui-imenu
        :n "r" #'lsp-rename
        :n "R" #'lsp-restart-workspace
        :n "w" #'lsp-ui-peek-find-workspace-symbol
-       )))
+       (:desc "toggle" :prefix "t"
+         :n "l" #'lsp-ui-sideline-mode
+         :n "d" #'lsp-ui-doc-mode
+         ))
+     ))
   ;; (set! :lookup 'lsp-ui-mode
   ;;   :definition #'lsp-ui-peek-find-definitions
   ;;   :references #'lsp-ui-peek-find-references)
@@ -69,9 +72,13 @@
   :init
   (setq
    ;; include type signature in the child frame
+   lsp-ui-doc-enable (featurep! +doc)
    lsp-ui-doc-include-signature (featurep! +doc)
    ;; show symbol on the right of info
-   lsp-ui-sideline-show-symbol (featurep! +sideline)))
+   lsp-ui-sideline-enable (featurep! +sideline)
+   lsp-ui-sideline-show-symbol (featurep! +sideline)
+   ))
+
 
 (def-package! company-lsp
   :after lsp-mode

@@ -158,7 +158,8 @@
 
        :private
        (lsp
-         +doc)
+         +doc
+         )
        (ccls
         +rainbow)
        prj
