@@ -12,3 +12,21 @@
 If SPLIT-ONEWINDOW is non-`nil' window is split in persistent action."
     (with-helm-window
          (setq helm-persistent-action-display-window (get-mru-window)))))
+
+
+(with-eval-after-load "projectile"
+   (map!
+   ;; localleader
+   :m "," nil
+   (:leader
+     (:prefix "p"
+         :n "T" #'projectile-test-project
+         :n "C" #'projectile-configure-project
+     ))))
+
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+)

@@ -39,6 +39,8 @@
   :hook (lsp-mode . lsp-ui-mode)
   :config
 
+  (evil-collection-lsp-ui-imenu-setup)
+
   (map! :map lsp-ui-peek-mode-map
         "h" 'lsp-ui-peek--select-prev-file
         "j" 'lsp-ui-peek--select-next
