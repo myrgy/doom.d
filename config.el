@@ -24,9 +24,14 @@ If SPLIT-ONEWINDOW is non-`nil' window is split in persistent action."
          :n "C" #'projectile-configure-project
      ))))
 
-(setq
- ;; use gdb-many-windows by default
- gdb-many-windows t
- ;; Non-nil means display source file containing the main routine at startup
- gdb-show-main t
-)
+;; (setq
+;;  ;; use gdb-many-windows by default
+;;  gdb-many-windows t
+;;  ;; Non-nil means display source file containing the main routine at startup
+;;  gdb-show-main t
+;; )
+
+(def-package! gdb-mi
+  :init
+  (fmakunbound 'gdb)
+  (fmakunbound 'gdb-enable-debug))
