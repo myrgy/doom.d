@@ -4,3 +4,4 @@
 (package! lsp-mode)
 (package! lsp-ui)
 (package! company-lsp)
+(package! spinner)

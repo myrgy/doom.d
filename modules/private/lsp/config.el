@@ -23,6 +23,7 @@
   ;; :commands (lsp-mode lsp-define-stdio-client)
   :after xref
   :init
+  (setq lsp-auto-guess-root t)
   (require 'lsp-imenu)
   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   (setq xref-prompt-for-identifier '(not xref-find-definitions

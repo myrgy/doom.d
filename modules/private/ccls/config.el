@@ -4,14 +4,16 @@
   ;; :when (featurep! :private +lsp
   :hook ((c-mode c++-mode cuda-mode objc-mode) . '+setup-ccls)
   :init
-  (setq ccls-cache-dir ".cache")
+  (setq ccls-initialization-options '(
+        :index (:comments 2)
+        :completion (:detailedLabel t)
+        :cacheDirectory ".cache"
+        ))
   (defun +setup-ccls ()
     (setq-local company-transformers nil)
     (setq-local company-lsp-cache-candidates nil)
     ;; (setq-local lsp-ui-sideline-show-symbol nil)
-    (condition-case nil
-        (lsp-ccls-enable)
-      (user-error nil)))
+    (lsp))
 
   :config
    (when (featurep! +lens)
