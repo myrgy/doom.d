@@ -2,7 +2,7 @@
 
 (def-package! ccls
   ;; :when (featurep! :private +lsp
-  :hook ((c-mode c++-mode cuda-mode objc-mode) . '+setup-ccls)
+  :hook ((c-mode c++-mode cuda-mode objc-mode) . +setup-ccls)
   :init
   ;; https://github.com/maskray/ccls/blob/master/src/config.h
   ;; (setq ccls-extra-init-params
@@ -47,5 +47,4 @@
        (:desc "Other" :prefix "o"
          :n "r" #'ccls-reload
          ))
-     ))
-  )
+     )))

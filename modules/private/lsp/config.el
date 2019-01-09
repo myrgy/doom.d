@@ -24,8 +24,6 @@
   :after xref
   :init
   (setq lsp-auto-guess-root t)
-  (require 'lsp-imenu)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   (setq xref-prompt-for-identifier '(not xref-find-definitions
                                          xref-find-definitions-other-window
                                          xref-find-definitions-other-frame
@@ -39,7 +37,7 @@
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :config
-
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   (evil-collection-lsp-ui-imenu-setup)
 
   (map! :map lsp-ui-peek-mode-map
