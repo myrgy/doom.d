@@ -3,3 +3,4 @@
 
 (package! helm-ctest)
 (package! helm-make)
+(package! multi-compile)

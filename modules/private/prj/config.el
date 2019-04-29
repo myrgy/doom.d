@@ -14,3 +14,6 @@
 
 (def-package! helm-ctest
   :after helm)
+
+(def-package! multi-compile
+  :after helm)
