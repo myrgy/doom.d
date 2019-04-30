@@ -36,6 +36,10 @@
 ;; (setq lsp-enable-indentation nil)
 ;; (setq lsp-imenu-show-container-name t)
 
+
+(setq ccls-executable "~/.opt/bin/ccls"
+      ccls-initialization-options `(:cache (:directory , ".cache")))
+
 ;;(def-package! gdb-mi
 ;;  :init
 ;;  (fmakunbound 'gdb)
