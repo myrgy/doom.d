@@ -14,15 +14,33 @@
 ;;          (setq helm-persistent-action-display-window (get-mru-window)))))
 
 
+;; (with-eval-after-load "projectile"
+;;    (map!
+;;    ;; localleader
+;;    :m "," nil
+;;    (:leader
+;;      (:prefix "p"
+;;        :n "T" #'+default/project-tasks
+;;        :n "t" #'projectile-test-project
+;;        :n "G" #'projectile-configure-project
+;;        )
+;;      )))
+
 (with-eval-after-load "projectile"
-   (map!
-   ;; localleader
-   :m "," nil
-   (:leader
-     (:prefix "p"
-         :n "T" #'projectile-test-project
-         :n "C" #'projectile-configure-project
-     ))))
+  (map!
+    :leader
+    (:prefix "p"
+             :desc "List project tasks" "T" #'+default/project-tasks
+             :desc "Run project tests"  "t" #'projectile-test-project
+             :desc "Configure project"  "G" #'projectile-configure-project
+             )))
+
+(map! :leader
+      (:prefix "c"
+               ;; (when: (featurep! :tools lsp)
+                      :desc "Rename"    "r" #'lsp-rename
+                      :desc "Open REPL" "R" #'+eval/open-repl-other-window))
+;;)
 
 ;; (setq
 ;;  ;; use gdb-many-windows by default
