@@ -71,7 +71,7 @@
        flycheck          ; tasing you for every semicolon you forget
        (flyspell          ; tasing you for misspelling mispelling
         +hunspell
-        +prog
+        ;; +prog
         )
        ;;gist              ; interacting with github gists
        (lookup           ; helps you navigate your code and documentation

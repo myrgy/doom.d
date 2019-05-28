@@ -26,7 +26,13 @@
       (:when (featurep! :tools lsp)
              (:prefix "c"
                :desc "Rename"    "r" #'lsp-rename
-               :desc "Open REPL" "R" #'+eval/open-repl-other-window)))
+               :desc "Open REPL" "R" #'+eval/open-repl-other-window
+               :desc "Format"    "f" #'clang-format-buffer)))
+
+(map! :leader
+             (:prefix "/"
+               :desc "Search buffer"    "/" #'swiper))
+
 
 ;; (setq
 ;;  ;; use gdb-many-windows by default
@@ -43,6 +49,18 @@
 
 (setq ccls-executable "~/.opt/bin/ccls"
       ccls-initialization-options `(:cache (:directory , ".cache")))
+
+(setq display-time-world-list
+      '(;; /usr/share/zoneinfo
+        ("America/New_York" "New York")
+        ("America/Chicago" "Chicago")
+        ("US/Central" "CDT (UTC -5)")
+        ("UTC" "UTC")
+        ("Europe/Minsk" "Minsk")
+        ("Asia/Changpai" "Changpai")
+        ("Asia/Tokyo" "Tokyo")
+        ("Australia/Sydney" "Sydney")
+        ))
 
 ;;(def-package! gdb-mi
 ;;  :init
