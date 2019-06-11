@@ -6,6 +6,12 @@
  user-full-name    "Alexander Dalshov"
  user-mail-address "dalshov@gmail.com")
 
+;; (setq xref-prompt-for-identifier '(not xref-find-definitions
+;;                                             xref-find-definitions-other-window
+;;                                             xref-find-definitions-other-frame
+;;                                             xref-find-references))
+
+
 ;; (with-eval-after-load "helm"
 ;;   (defun helm-persistent-action-display-window (&optional split-onewindow)
 ;;     "Return the window that will be used for persistent action.
@@ -34,12 +40,15 @@
                :desc "Search buffer"    "/" #'swiper))
 
 
-;; (setq
-;;  ;; use gdb-many-windows by default
-;;  gdb-many-windows t
-;;  ;; Non-nil means display source file containing the main routine at startup
-;;  gdb-show-main t
-;; )
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+
+ lsp-ui-sideline-mode nil
+)
+
 
 (setq lsp-haskell-process-path-hie "~/.local/bin/hie-wrapper")
 ;; (setq lsp-enable-on-type-formatting nil)
