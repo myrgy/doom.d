@@ -55,7 +55,7 @@
        +icons          ; colorful icons for dired-mode
         )
        electric          ; smarter, keyword-based electric-indent
-       ;;eshell            ; a consistent, cross-platform shell (WIP)
+       eshell            ; a consistent, cross-platform shell (WIP)
        imenu             ; an imenu sidebar and searchable code index
        ;;term              ; terminals in Emacs
        vc                ; version-control and Emacs, sitting in a tree
@@ -112,7 +112,7 @@
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
-       ;;kotlin            ; a better, slicker Java(Script)
+       kotlin            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
        lua               ; one-based indices? one-based indices
@@ -139,7 +139,7 @@
        ;;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
-       (sh +fish)        ; she sells (ba|z|fi)sh shells on the C xor
+       ;;(sh +fish)        ; she sells (ba|z|fi)sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.

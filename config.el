@@ -46,7 +46,7 @@
  ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t
 
- lsp-ui-sideline-mode nil
+ lsp-ui-sideline-enable nil
 )
 
 
