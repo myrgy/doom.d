@@ -40,6 +40,17 @@
                :desc "Search buffer"    "/" #'swiper))
 
 
+(def-package! pomidor
+  :config
+  (map! :g "<f12>" 'pomidor)
+  (map! :mode pomidor-mode
+        :localleader
+        "RET"   #'pomidor-stop
+        "SPC" #'pomidor-break
+        "R"     #'pomidor-reset
+        "Q"     #'pomidor-quit
+  ))
+
 (setq
  ;; use gdb-many-windows by default
  gdb-many-windows t
@@ -47,6 +58,7 @@
  gdb-show-main t
 
  lsp-ui-sideline-enable nil
+ plantuml-default-exec-mode 'jar
 )
 
 

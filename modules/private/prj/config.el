@@ -27,8 +27,7 @@
   :when (featurep! :completion ivy)
   :config (setq helm-make-completion-method 'ivy))
 
-(def-package! clang-format
-  )
+(def-package! clang-format)
 
 (with-eval-after-load "projectile"
    (map!
