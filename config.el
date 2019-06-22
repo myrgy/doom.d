@@ -42,6 +42,8 @@
 
 (def-package! pomidor
   :config
+  (setq pomidor-sound-tick nil
+        pomidor-sound-tack nil)
   (map! :g "<f12>" 'pomidor)
   (map! :mode pomidor-mode
         :localleader
@@ -49,7 +51,7 @@
         "SPC" #'pomidor-break
         "R"     #'pomidor-reset
         "Q"     #'pomidor-quit
-  ))
+        ))
 
 (setq
  ;; use gdb-many-windows by default
