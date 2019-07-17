@@ -55,10 +55,10 @@
        +icons          ; colorful icons for dired-mode
         )
        electric          ; smarter, keyword-based electric-indent
-       eshell            ; a consistent, cross-platform shell (WIP)
-       imenu             ; an imenu sidebar and searchable code index
-       ;;term              ; terminals in Emacs
        vc                ; version-control and Emacs, sitting in a tree
+
+       :term
+        eshell            ; a consistent, cross-platform shell (WIP)
 
        :tools
        ansible
@@ -150,6 +150,7 @@
        ;; toward a specific purpose. They may have additional dependencies and
        ;; should be loaded late.
        :app
+       calendar
        ;;(email +gmail)    ; emacs as an email client
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
