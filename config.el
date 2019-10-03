@@ -62,6 +62,8 @@
  lsp-ui-sideline-enable nil
  lsp-ui-doc-enable t
  plantuml-default-exec-mode 'jar
+
+ lsp-file-watch-threshold 10000
 )
 
 
