@@ -5,3 +5,4 @@
 (package! helm-make)
 (package! multi-compile)
 (package! clang-format)
+(package! flycheck-clang-tidy)

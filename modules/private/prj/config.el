@@ -29,6 +29,10 @@
 
 (def-package! clang-format)
 
+(def-package! flycheck-clang-tidy
+  :when (featurep! :tools flycheck)
+  :hook (flycheck-mode . flycheck-clang-tidy-setup))
+
 (with-eval-after-load "projectile"
    (map!
    ;; localleader

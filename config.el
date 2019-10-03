@@ -33,7 +33,8 @@
              (:prefix "c"
                :desc "Rename"    "r" #'lsp-rename
                :desc "Open REPL" "R" #'+eval/open-repl-other-window
-               :desc "Format"    "f" #'clang-format-buffer)))
+               ;; :desc "Format"    "f" #'clang-format-buffear
+               )))
 
 (map! :leader
              (:prefix "/"
@@ -64,6 +65,37 @@
  plantuml-default-exec-mode 'jar
 
  lsp-file-watch-threshold 10000
+
+ lsp-file-watch-ignored
+ '("[/\\\\]\\.git$"
+   "[/\\\\]\\.hg$"
+   "[/\\\\]\\.bzr$"
+   "[/\\\\]_darcs$"
+   "[/\\\\]\\.svn$"
+   "[/\\\\]_FOSSIL_$"
+   "[/\\\\]\\.idea$"
+   "[/\\\\]\\.ensime_cache$"
+   "[/\\\\]\\.eunit$"
+   "[/\\\\]node_modules$"
+   "[/\\\\]\\.fslckout$"
+   "[/\\\\]\\.tox$"
+   "[/\\\\]\\.stack-work$"
+   "[/\\\\]\\.bloop$"
+   "[/\\\\]\\.metals$"
+   "[/\\\\]target$" "[/\\\\]\\.deps$"
+   "[/\\\\]build-aux$"
+   "[/\\\\]autom4te.cache$"
+   "[/\\\\]\\.reference$"
+   "[/\\\\]build$"
+   "[/\\\\]ci-build-"
+   "[/\\\\]\\.cache")
+ magit-todos-exclude-globs
+ '("vendor"
+   "[\\////]//.cache$"
+   "[\\////]//build$"
+   "[\\////]//ci-build$")
+
+  ;; flycheck-clang-tidy-build-path "/opt/llvm9/bin/clang-tidy"
 )
 
 
