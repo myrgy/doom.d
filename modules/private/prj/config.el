@@ -31,7 +31,12 @@
 
 (def-package! flycheck-clang-tidy
   :when (featurep! :tools flycheck)
-  :hook (flycheck-mode . flycheck-clang-tidy-setup))
+  :config (flycheck-clang-tidy-setup))
+
+(with-eval-after-load "flycheck"
+  (with-eval-after-load "flycheck-clang-tidy"
+    (with-eval-after-load "lsp-ui-flycheck"
+      (flycheck-add-next-checker 'lsp-ui 'c/c++-clang-tidy))))
 
 (with-eval-after-load "projectile"
    (map!

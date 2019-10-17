@@ -95,7 +95,7 @@
    "[\\////]//build$"
    "[\\////]//ci-build$")
 
-  ;; flycheck-clang-tidy-build-path "/opt/llvm9/bin/clang-tidy"
+ flycheck-c/c++-clang-tidy-executable "/opt/llvm9/bin/clang-tidy"
 )
 
 
