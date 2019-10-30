@@ -106,7 +106,7 @@
 
 
 (setq ccls-executable "~/.opt/bin/ccls"
-      ccls-initialization-options `(:cache (:directory , ".cache")))
+      ccls-initialization-options `(:cache (:directory ".cache"), :compilationDatabaseDirectory "build"))
 
 (setq display-time-world-list
       '(;; /usr/share/zoneinfo
