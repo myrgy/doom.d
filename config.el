@@ -6,6 +6,8 @@
  user-full-name    "Alexander Dalshov"
  user-mail-address "dalshov@gmail.com")
 
+;; (toggle-debug-on-error)
+
 ;; (setq xref-prompt-for-identifier '(not xref-find-definitions
 ;;                                             xref-find-definitions-other-window
 ;;                                             xref-find-definitions-other-frame
@@ -36,9 +38,9 @@
                ;; :desc "Format"    "f" #'clang-format-buffear
                )))
 
-(map! :leader
-             (:prefix "/"
-               :desc "Search buffer"    "/" #'swiper))
+;;(map! :leader
+;;             (:prefix "/"
+;;               :desc "Search buffer"    "/" #'swiper))
 
 
 (def-package! pomidor
@@ -55,6 +57,7 @@
         ))
 
 (setq
+ imenu-max-item-length 256
  ;; use gdb-many-windows by default
  gdb-many-windows t
  ;; Non-nil means display source file containing the main routine at startup
@@ -119,6 +122,10 @@
         ("Asia/Tokyo" "Tokyo")
         ("Australia/Sydney" "Sydney")
         ))
+
+(with-eval-after-load "forge"
+  (add-to-list 'forge-alist '("git.cwr.pub" "git.cwr.pub/api/v4" "git.cwr.pub" forge-gitlab-repository))
+)
 
 ;;(def-package! gdb-mi
 ;;  :init
