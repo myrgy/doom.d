@@ -12,7 +12,7 @@
 ;;                                             xref-find-definitions-other-window
 ;;                                             xref-find-definitions-other-frame
 ;;                                             xref-find-references))
-
+(fset 'battery-update #'ignore)
 
 ;; (with-eval-after-load "helm"
 ;;   (defun helm-persistent-action-display-window (&optional split-onewindow)
