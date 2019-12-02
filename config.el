@@ -38,24 +38,6 @@
                ;; :desc "Format"    "f" #'clang-format-buffear
                )))
 
-;;(map! :leader
-;;             (:prefix "/"
-;;               :desc "Search buffer"    "/" #'swiper))
-
-
-(def-package! pomidor
-  :config
-  (setq pomidor-sound-tick nil
-        pomidor-sound-tack nil)
-  (map! :g "<f12>" 'pomidor)
-  (map! :mode pomidor-mode
-        :localleader
-        "RET"   #'pomidor-stop
-        "SPC" #'pomidor-break
-        "R"     #'pomidor-reset
-        "Q"     #'pomidor-quit
-        ))
-
 (setq
  imenu-max-item-length 256
  ;; use gdb-many-windows by default
