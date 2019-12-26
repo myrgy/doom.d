@@ -116,3 +116,7 @@
 ;;  (fmakunbound 'gdb-enable-debug))
 
 (use-package! lsp-treemacs)
+(use-package! python-black
+  :after python)
+
+(setq python-black-command "~/.local/bin/black")
