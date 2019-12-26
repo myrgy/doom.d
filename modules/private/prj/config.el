@@ -1,6 +1,6 @@
 ;;; private/prj/config.el -*- lexical-binding: t; -*-
 
-(def-package! helm-make
+(use-package! helm-make
   :after helm
   :config (setq helm-mode-fuzzy-match t)
   ;; :config
@@ -13,23 +13,23 @@
   ;;      )))
   )
 
-(def-package! helm-ctest
+(use-package! helm-ctest
   :after helm)
 
-(def-package! multi-compile
+(use-package! multi-compile
   :after helm)
 
-(def-package! helm-make
+(use-package! helm-make
   :when (featurep! :completion helm)
   :config (setq helm-make-completion-method 'helm))
 
-(def-package! helm-make
+(use-package! helm-make
   :when (featurep! :completion ivy)
   :config (setq helm-make-completion-method 'ivy))
 
-(def-package! clang-format)
+(use-package! clang-format)
 
-(def-package! flycheck-clang-tidy
+(use-package! flycheck-clang-tidy
   :when (featurep! :tools flycheck)
   :config (flycheck-clang-tidy-setup))
 

@@ -97,7 +97,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
-       cc                ; C/C++/Obj-C madness
+       (cc +lsp)           ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -138,7 +138,7 @@
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       ;;python            ; beautiful is better than ugly
+       (python +lsp +pyenv)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
@@ -159,7 +159,7 @@
        ;;(wanderlust +gmail)
 
        :app
-       ;;calendar
+       calendar
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
@@ -172,139 +172,3 @@
        :private
        prj
        )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   (quote
-    ((clang-format-binary . "/opt/llvm8/bin/clang-format")
-     (projectile-project-name . "qgo")
-     (eval setq projectile-project-test-cmd
-           (function helm-ctest)
-           projectile-project-compilation-cmd
-           (function helm-make-projectile)
-           projectile-project-compilation-cmd
-           (function multi-compile-run)
-           projectile-project-compilation-dir "build" helm-make-build-dir
-           (projectile-compilation-dir)
-           helm-ctest-dir
-           (projectile-compilation-dir)
-           multi-compile-alist
-           (quote
-            (("\\.*"
-              ("release" "./script/build.sh release"
-               (projectile-project-root))
-              ("debug" "./script/build.sh debug"
-               (projectile-project-root))
-              ("dbg" "./script/build.sh dbg"
-               (projectile-project-root))
-              ("asan" "./script/build.sh asan"
-               (projectile-project-root))
-              ("tsan" "./script/build.sh tsan"
-               (projectile-project-root))
-              ("clang" "./script/build.sh clang"
-               (projectile-project-root))))))
-     (eval require
-           (quote lsp))
-     (helm-make-arguments . "-j10")
-     (projectile-project-configure-cmd . "env CLICOLOR_FORCE=1 cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCLANG_FORMAT_EXCLUDE_PATTERNS=/.cache/\\;/build/\\;/ci-build- ..")
-     (projectile-project-name . "Simulator")
-     (eval setq projectile-project-test-cmd
-           (function helm-ctest)
-           projectile-project-compilation-cmd
-           (function helm-make-projectile)
-           projectile-project-compilation-cmd
-           (function multi-compile-run)
-           projectile-project-compilation-dir "build" helm-make-build-dir
-           (projectile-compilation-dir)
-           helm-ctest-dir
-           (projectile-compilation-dir)
-           multi-compile-alist
-           (quote
-            (("\\.*"
-              ("release" "./tools/build.sh release"
-               (projectile-project-root))
-              ("debug" "./tools/build.sh debug"
-               (projectile-project-root))
-              ("dbg" "./tools/build.sh dbg"
-               (projectile-project-root))
-              ("asan" "./tools/build.sh asan"
-               (projectile-project-root))
-              ("tsan" "./tools/build.sh tsan"
-               (projectile-project-root))
-              ("lint" "./tools/build.sh clang-tools"
-               (projectile-project-root))
-              ("clang" "./tools/build.sh clang"
-               (projectile-project-root))))))
-     (clang-format-binary . "~/Workspace/feeds/tools/clang-format")
-     (helm-make-arguments . "-j11")
-     (projectile-project-configure-cmd . "env CLICOLOR_FORCE=1 cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCLANG_FORMAT_EXCLUDE_PATTERNS=/.cache/\\;/ci-build- ..")
-     (projectile-project-name . "Feeds")
-     (eval setq projectile-project-test-cmd
-           (function helm-ctest)
-           projectile-project-compilation-cmd
-           (function helm-make-projectile)
-           projectile-project-compilation-cmd
-           (function multi-compile-run)
-           projectile-project-compilation-dir "build" helm-make-build-dir
-           (projectile-compilation-dir)
-           helm-ctest-dir
-           (projectile-compilation-dir)
-           multi-compile-alist
-           (quote
-            (("\\.*"
-              ("release" "./tools/build.sh release"
-               (projectile-project-root))
-              ("debug" "./tools/build.sh debug"
-               (projectile-project-root))
-              ("dbg" "./tools/build.sh dbg"
-               (projectile-project-root))
-              ("asan" "./tools/build.sh asan"
-               (projectile-project-root))
-              ("tsan" "./tools/build.sh tsan"
-               (projectile-project-root))
-              ("clang" "./tools/build.sh clang"
-               (projectile-project-root))))))
-     (clang-format-style-option . "file")
-     (clang-format-binary . "/opt/llvm9/bin/clang-format")
-     (helm-ctest-env . "CATCH_SUCCESSFUL_TESTS=0 VERBOSE=0")
-     (helm-make-nproc . 10)
-     (projectile-project-configure-cmd . "env CLICOLOR_FORCE=1 cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  -DCMAKE_CXX_FLAGS='-fsanitize=address' -DCLANG_FORMAT_EXCLUDE_PATTERNS=/.cache/\\;/ci-build- ..")
-     (projectile-project-name . "Gateways")
-     (eval setq projectile-project-test-cmd
-           (function helm-ctest)
-           projectile-project-compilation-cmd
-           (function helm-make-projectile)
-           projectile-project-compilation-cmd
-           (function multi-compile-run)
-           projectile-project-compilation-dir "build" helm-make-build-dir
-           (projectile-compilation-dir)
-           helm-ctest-dir
-           (projectile-compilation-dir)
-           flycheck-clang-tidy-build-path "ci-build-clang" multi-compile-alist
-           (quote
-            (("\\.*"
-              ("release" "./tools/build.sh release"
-               (projectile-project-root))
-              ("debug" "./tools/build.sh debug"
-               (projectile-project-root))
-              ("dbg" "./tools/build.sh dbg"
-               (projectile-project-root))
-              ("asan" "./tools/build.sh asan"
-               (projectile-project-root))
-              ("tsan" "./tools/build.sh tsan"
-               (projectile-project-root))
-              ("ubsan" "./tools/build.sh ubsan"
-               (projectile-project-root))
-              ("clang" "./tools/build.sh clang"
-               (projectile-project-root))
-              ("lint" "./tools/build.sh clang-tools"
-               (projectile-project-root))))))))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
