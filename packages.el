@@ -2,3 +2,4 @@
 ;;; ~/.doom.d/packages.el
 
 (package! lsp-treemacs)
+(package! zone)
