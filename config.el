@@ -116,17 +116,3 @@
 ;;  (fmakunbound 'gdb-enable-debug))
 
 (use-package! lsp-treemacs)
-
-(use-package! zone
-  :ensure nil
-  :config
-   (zone-when-idle 60) ; in seconds
-  (defun zone-choose (pgm)
-    "Choose a PGM to run for `zone'."
-    (interactive
-     (list
-      (completing-read
-       "Program: "
-       (mapcar 'symbol-name zone-programs))))
-    (let ((zone-programs (list (intern pgm))))
-      (zone))))
