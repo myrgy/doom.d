@@ -28,7 +28,7 @@
    (:prefix "p"
      :desc "List project tasks" "T" #'+default/project-tasks
      :desc "Run project tests"  "t" #'projectile-test-project
-     :desc "Configure project"  "G" #'projectile-configure-project
+     ;; :desc "Configure project"  "G" #'projectile-configure-project
      )))
 
 (map! :leader
