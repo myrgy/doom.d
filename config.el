@@ -1,7 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here
-(setq custom-file "~/.doom.d/custom.el")
+
 
 (setq-default
  user-full-name    "Alexander Dalshov"
@@ -116,3 +116,6 @@
 ;;  (fmakunbound 'gdb-enable-debug))
 
 (use-package! lsp-treemacs)
+
+(setq custom-file "~/.doom.d/custom.el")
+(load custom-file)
