@@ -7,6 +7,10 @@
  user-full-name    "Alexander Dalshov"
  user-mail-address "dalshov@gmail.com")
 
+(setq doom-theme 'doom-one-light)
+(setq doom-font (font-spec :family "monospace" :size 16 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "sans"))
+
 ;; (toggle-debug-on-error)
 
 ;; (setq xref-prompt-for-identifier '(not xref-find-definitions
@@ -118,4 +122,5 @@
 (use-package! lsp-treemacs)
 
 (setq custom-file "~/.doom.d/custom.el")
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
