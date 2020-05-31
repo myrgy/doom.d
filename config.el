@@ -7,7 +7,7 @@
  user-full-name    "Alexander Dalshov"
  user-mail-address "dalshov@gmail.com")
 
-(setq doom-theme 'doom-one-light)
+;;(setq doom-theme 'doom-one-light)
 (setq doom-font (font-spec :family "monospace" :size 16 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans"))
 
@@ -30,8 +30,8 @@
   (map!
    :leader
    (:prefix "p"
-     :desc "List project tasks" "T" #'+default/project-tasks
-     :desc "Run project tests"  "t" #'projectile-test-project
+    ;; :desc "List project tasks" "T" #'+default/project-tasks
+     ;;:desc "Run project tests"  "t" #'projectile-test-project
      ;; :desc "Configure project"  "G" #'projectile-configure-project
      )))
 
@@ -85,7 +85,7 @@
    "[\\////]//build$"
    "[\\////]//ci-build$")
 
- flycheck-c/c++-clang-tidy-executable "/opt/llvm9/bin/clang-tidy"
+ flycheck-c/c++-clang-tidy-executable "/opt/llvm10/bin/clang-tidy"
 )
 
 

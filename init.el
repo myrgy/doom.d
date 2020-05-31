@@ -65,7 +65,7 @@
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired +ranger +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ibuffer           ; interactive buffer management
        vc                ; version-control and Emacs, sitting in a tree
@@ -100,6 +100,7 @@
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
+       taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        ;;upload            ; map local to remote projects via ssh/ftp
