@@ -7,7 +7,7 @@
  user-full-name    "Alexander Dalshov"
  user-mail-address "dalshov@gmail.com")
 
-;;(setq doom-theme 'doom-one-light)
+(setq doom-theme 'tango)
 (setq doom-font (font-spec :family "monospace" :size 16 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans"))
 
@@ -50,6 +50,7 @@
  ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t
 
+ lsp-imenu-show-container-name t
  lsp-ui-sideline-enable nil
  lsp-ui-doc-enable t
  plantuml-default-exec-mode 'jar
@@ -85,8 +86,9 @@
    "[\\////]//build$"
    "[\\////]//ci-build$")
 
- flycheck-c/c++-clang-tidy-executable "/opt/llvm10/bin/clang-tidy"
-)
+ ;;flycheck-c/c++-clang-tidy-executable "/opt/llvm10/bin/clang-tidy"
+ )
+
 
 
 (setq lsp-haskell-process-path-hie "~/.local/bin/hie-wrapper")
