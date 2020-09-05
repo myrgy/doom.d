@@ -26,6 +26,7 @@
                :desc "Open REPL" "R" #'+eval/open-repl-other-window
                ;; :desc "Format"    "f" #'clang-format-buffear
                )))
+(setq read-process-output-max (* 1024 1024 4)) ;; 4mb
 
 (setq
  imenu-max-item-length 256
