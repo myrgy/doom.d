@@ -2,29 +2,13 @@
 
 ;; Place your private configuration here
 
-
 (setq-default
  user-full-name    "Alexander Dalshov"
  user-mail-address "dalshov@gmail.com")
 
-(setq doom-theme 'tango)
+;; (setq doom-theme 'tango)
 (setq doom-font (font-spec :family "monospace" :size 16 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans"))
-
-;; (toggle-debug-on-error)
-
-;; (setq xref-prompt-for-identifier '(not xref-find-definitions
-;;                                             xref-find-definitions-other-window
-;;                                             xref-find-definitions-other-frame
-;;                                             xref-find-references))
-(fset 'battery-update #'ignore)
-
-;; (with-eval-after-load "helm"
-;;   (defun helm-persistent-action-display-window (&optional split-onewindow)
-;;     "Return the window that will be used for persistent action.
-;; If SPLIT-ONEWINDOW is non-`nil' window is split in persistent action."
-;;     (with-helm-window
-;;          (setq helm-persistent-action-display-window (get-mru-window)))))
 
 (with-eval-after-load "projectile"
   (map!
@@ -79,7 +63,8 @@
    "[/\\\\]\\.reference$"
    "[/\\\\]build$"
    "[/\\\\]ci-build-"
-   "[/\\\\]\\.cache")
+   "[/\\\\]\\.cache$")
+
  magit-todos-exclude-globs
  '("vendor"
    "[\\////]//.cache$"
