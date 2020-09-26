@@ -109,6 +109,9 @@
 
 (use-package! lsp-treemacs)
 
+(fmakunbound 'gdb)
+(fmakunbound 'gdb-enable-debug)
+
 (setq custom-file "~/.doom.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
