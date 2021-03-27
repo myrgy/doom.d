@@ -7,7 +7,10 @@
  user-mail-address "dalshov@gmail.com")
 
 ;; (setq doom-theme 'tango)
-(setq doom-font (font-spec :family "monospace" :size 16 :weight 'semi-light)
+(setq doom-font (font-spec :family "monospace"
+                           :size 28
+                           ;;:size 14
+                           :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans"))
 
 (with-eval-after-load "projectile"
@@ -119,6 +122,24 @@
 (setq custom-file "~/.doom.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
+
+
+;; Font size adjustment
+(defun auto-adjust-font-size (frame)
+  "Inspired by https://emacs.stackexchange.com/a/44930/17066. FRAME is ignored.
+If I let Windows handle DPI everything looks blurry."
+  (setq attrs (frame-monitor-attributes frame))
+  (setq pix-w (cl-fourth (assoc 'geometry attrs)))
+
+  (when (eq pix-w 2560) ;; imac
+    (setq size 14))
+  (when (eq pix-w 1920) ;; laptop low res
+    (setq size 14))
+  (when (eq pix-w 3840) ;; laptop hi res
+    (setq size 28))
+  (set-frame-font  (font-spec :family "monospace"
+                              :size size
+                              :weight 'semi-light)))
 
 (add-hook 'window-size-change-functions #'auto-adjust-font-size)
 
