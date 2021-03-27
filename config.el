@@ -115,3 +115,16 @@
 (setq custom-file "~/.doom.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
+
+(add-hook 'window-size-change-functions #'auto-adjust-font-size)
+
+;; Each path is relative to `+mu4e-mu4e-mail-path', which is ~/.mail by default
+(set-email-account! "work"
+  '((mu4e-sent-folder       . "/work/Sent Mail")
+    (mu4e-drafts-folder     . "/work/Drafts")
+    (mu4e-trash-folder      . "/work/Trash")
+    (mu4e-refile-folder     . "/work/All Mail")
+    (smtpmail-smtp-user     . "adalshov@charlesworthresearch.com")
+    (user-mail-address      . "adalshov@charlesworthresearch.com")    ;; only needed for mu < 1.4
+    (mu4e-compose-signature . "---\nAlexander Dalshov"))
+  t)
