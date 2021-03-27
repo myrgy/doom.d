@@ -82,9 +82,13 @@
 ;; (setq lsp-enable-indentation nil)
 ;; (setq lsp-imenu-show-container-name t)
 
-
-(setq ccls-executable "~/.opt/bin/ccls"
-      ccls-initialization-options `(:cache (:directory ".cache"), :compilationDatabaseDirectory "build"))
+(setq ccls-executable "~/.opt/bin/ccls")
+(after! ccls
+  (message "ccls init optionsll")
+  (setq ccls-initialization-options `(:trackDependency 1
+                                       :index(:threads 5)
+                                       :cache (:directory ".cache")
+                                       :compilationDatabaseDirectory "build")))
 
 (setq display-time-world-list
       '(;; /usr/share/zoneinfo
