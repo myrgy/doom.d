@@ -8,8 +8,8 @@
 
 ;; (setq doom-theme 'tango)
 (setq doom-font (font-spec :family "monospace"
-                           :size 28
-                           ;;:size 14
+                           ;;:size 28
+                           :size 16
                            :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans"))
 
@@ -42,6 +42,10 @@
  lsp-ui-sideline-enable nil
  lsp-ui-doc-enable t
  plantuml-default-exec-mode 'jar
+ plantuml-jar-path '"/usr/share/java/plantuml.jar"
+ plantuml-java-args '("-Djava.awt.headless=true" "-jar")
+
+ enable-local-variables t
 
  lsp-file-watch-threshold 10000
 
@@ -79,19 +83,24 @@
  )
 
 
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+(setq clang-format-executable "/opt/llvm10/bin/clang-format")
+(setq +format-with-lsp nil)
 
 (setq lsp-haskell-process-path-hie "~/.local/bin/hie-wrapper")
 ;; (setq lsp-enable-on-type-formatting nil)
 ;; (setq lsp-enable-indentation nil)
 ;; (setq lsp-imenu-show-container-name t)
 
+;; (setq ccls-args '("--log-file=/tmp/ccls.log"))
 (setq ccls-executable "~/.opt/bin/ccls")
 (after! ccls
   (message "ccls init optionsll")
   (setq ccls-initialization-options `(:trackDependency 1
-                                       :index(:threads 5)
-                                       :cache (:directory ".cache")
-                                       :compilationDatabaseDirectory "build")))
+                                      :index(:threads 5)
+                                      :cache (:directory ".cache")
+                                      :compilationDatabaseDirectory "build")))
 
 (setq display-time-world-list
       '(;; /usr/share/zoneinfo
@@ -109,15 +118,23 @@
   (add-to-list 'forge-alist '("git.cwr.pub" "git.cwr.pub/api/v4" "git.cwr.pub" forge-gitlab-repository))
 )
 
+(setq deft-directory "~/Dropbox/org/"
+      deft-recursive t
+      org-directory "~/Dropbox/org/"
+      ;;org-brain-path "~/Dropbox/org/brain"
+      org-roam-tag-sources '(prop last-directory)
+      org-roam-directory "~/Dropbox/org/roam")
+
+
 ;;(def-package! gdb-mi
 ;;  :init
 ;;  (fmakunbound 'gdb)
 ;;  (fmakunbound 'gdb-enable-debug))
 
-(use-package! lsp-treemacs)
+;;(use-package! lsp-treemacs)
 
-(fmakunbound 'gdb)
-(fmakunbound 'gdb-enable-debug)
+;;(fmakunbound 'gdb)
+;;(fmakunbound 'gdb-enable-debug)
 
 (setq custom-file "~/.doom.d/custom.el")
 (when (file-exists-p custom-file)
@@ -141,7 +158,7 @@ If I let Windows handle DPI everything looks blurry."
                               :size size
                               :weight 'semi-light)))
 
-(add-hook 'window-size-change-functions #'auto-adjust-font-size)
+;;(add-hook 'window-size-change-functions #'auto-adjust-font-size)
 
 ;; Each path is relative to `+mu4e-mu4e-mail-path', which is ~/.mail by default
 (set-email-account! "work"
